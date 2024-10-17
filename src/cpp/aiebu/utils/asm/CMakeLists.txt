@@ -19,6 +19,11 @@ target_link_libraries(${TARGET}
   ${Boost_PROGRAM_OPTIONS_LIBRARY}
   )
 
+target_compile_options(${TARGET}
+  PRIVATE
+  $<$<CONFIG:Debug>:/MTd>
+  $<$<CONFIG:Release>:/MT>)
+
 target_include_directories(${TARGET} PRIVATE
   ${AIEBU_SOURCE_DIR}/src/cpp/aiebu/src/include
   ${AIEBU_SOURCE_DIR}/src/cpp/aiebu/src/assembler/
